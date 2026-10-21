@@ -1,0 +1,596 @@
+/* =========================================================
+   Portfolio – Sergio Nahuel Solveira
+   Mobile-first, modo claro/oscuro, sin dependencias externas
+   de CSS (la única excepción es la hoja de estilos de Inter).
+   ========================================================= */
+
+/* ---------- Variables: tema claro ---------- */
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --surface: #f6f7f9;
+  --surface-2: #eaeef4;
+  --text: #16191d;
+  --text-muted: #556072;
+  --border: #e2e6ec;
+  --accent: #1d4ed8;
+  --accent-hover: #1e40af;
+  --accent-contrast: #ffffff;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 8px 24px rgba(16, 24, 40, 0.06);
+}
+
+/* ---------- Variables: tema oscuro (automático) ---------- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0f1216;
+    --surface: #171b21;
+    --surface-2: #1f252e;
+    --text: #e9ecf1;
+    --text-muted: #a4adbb;
+    --border: #272d36;
+    --accent: #7aa2ff;
+    --accent-hover: #9bb8ff;
+    --accent-contrast: #0f1216;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* ---------- Variables: tema oscuro (override manual) ---------- */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0f1216;
+  --surface: #171b21;
+  --surface-2: #1f252e;
+  --text: #e9ecf1;
+  --text-muted: #a4adbb;
+  --border: #272d36;
+  --accent: #7aa2ff;
+  --accent-hover: #9bb8ff;
+  --accent-contrast: #0f1216;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--accent);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.container {
+  width: min(100% - 2.5rem, 1080px);
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 8px 0;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.lead {
+  color: var(--text-muted);
+  max-width: 72ch;
+  font-size: 1.05rem;
+}
+
+/* ---------- Header y navegación ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 64px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background-color: var(--accent);
+  color: var(--accent-contrast);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.brand-name {
+  font-size: 0.95rem;
+}
+
+.nav-controls {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.icon-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Panel de navegación (menú móvil) */
+.nav-panel {
+  position: absolute;
+  top: 100%;
+  left: -1.25rem;
+  right: -1.25rem;
+  display: none;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.nav-wrap.is-open .nav-panel {
+  display: block;
+}
+
+.nav-panel ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 1.25rem 1rem;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.nav-panel a {
+  display: block;
+  padding: 0.7rem 0.75rem;
+  border-radius: 8px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-panel a:hover {
+  background-color: var(--surface);
+  color: var(--accent);
+}
+
+.nav-panel a[aria-current="true"] {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Icono hamburguesa */
+.hamburger {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 2px;
+  transition: background-color 0.2s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 2px;
+  transition: transform 0.2s ease;
+}
+
+.hamburger::before { top: -6px; }
+.hamburger::after { top: 6px; }
+
+.nav-wrap.is-open .hamburger {
+  background-color: transparent;
+}
+
+.nav-wrap.is-open .hamburger::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav-wrap.is-open .hamburger::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Iconos de tema: luna para pasar a oscuro, sol para pasar a claro */
+.icon-sun { display: none; }
+:root[data-theme="dark"] .icon-moon { display: none; }
+:root[data-theme="dark"] .icon-sun { display: block; }
+
+/* Sin elección manual: seguir el icono al esquema del sistema */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .icon-moon { display: none; }
+  :root:not([data-theme="light"]) .icon-sun { display: block; }
+}
+
+/* Escritorio */
+@media (min-width: 860px) {
+  .nav-toggle { display: none; }
+
+  .nav-panel {
+    position: static;
+    display: block;
+    margin-left: auto;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .nav-panel ul {
+    display: flex;
+    gap: 0.15rem;
+    padding: 0;
+  }
+
+  .nav-panel a {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.93rem;
+  }
+
+  .nav-controls {
+    margin-left: 1rem;
+  }
+}
+
+/* ---------- Secciones ---------- */
+section {
+  padding-block: clamp(3rem, 8vw, 5rem);
+  scroll-margin-top: 4.5rem;
+}
+
+.section-title {
+  margin: 0 0 1.75rem;
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding-block: clamp(4rem, 12vw, 7rem);
+}
+
+.hero h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2.1rem, 6vw, 3.4rem);
+  letter-spacing: -0.02em;
+}
+
+.hero .subtitle {
+  margin: 0 0 1rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.hero .intro {
+  max-width: 60ch;
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Botones ---------- */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.3rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+.btn-outline {
+  background-color: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---------- Tarjetas y grids ---------- */
+.card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  box-shadow: var(--shadow);
+}
+
+.card + .card {
+  margin-top: 1.25rem;
+}
+
+.card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.card-pending {
+  border-style: dashed;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.card-head h3 {
+  margin: 0;
+}
+
+.card-head p {
+  margin: 0.15rem 0 0;
+}
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.grid .card + .card {
+  margin-top: 0;
+}
+
+@media (min-width: 720px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---------- Experiencia ---------- */
+.subhead {
+  margin: 1.5rem 0 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.roles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.roles li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dashed var(--border);
+}
+
+.roles li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.role-name {
+  font-weight: 600;
+}
+
+.role-date {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.list {
+  margin: 0 0 0.5rem;
+  padding-left: 1.15rem;
+}
+
+.list li {
+  margin-bottom: 0.4rem;
+}
+
+.list li::marker {
+  color: var(--accent);
+}
+
+.highlights li {
+  font-weight: 500;
+}
+
+/* ---------- Chips (tecnologías / habilidades) ---------- */
+.chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.chip {
+  padding: 0.3rem 0.75rem;
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.83rem;
+  font-weight: 500;
+}
+
+/* ---------- Contacto ---------- */
+.contact-card .lead {
+  margin-bottom: 1.25rem;
+}
+
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.contact-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 1rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.contact-label {
+  min-width: 5.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.contact-list a {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding-block: 2rem;
+}
+
+.footer-wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.footer-wrap p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Movimiento reducido ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
