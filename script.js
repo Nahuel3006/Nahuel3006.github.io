@@ -71,14 +71,16 @@
 
   /* ---------------- Menú de navegación (móvil) ---------------- */
 
-  var header = document.querySelector('.site-header');
+  var header = document.querySelector('.nav-wrap'); // el CSS usa .nav-wrap.is-open
   var navToggle = document.getElementById('nav-toggle');
   var navPanel = document.getElementById('site-nav');
 
   function setNavOpen(open) {
     header.classList.toggle('is-open', open);
     navToggle.setAttribute('aria-expanded', String(open));
-    navToggle.setAttribute('aria-label', open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+    navToggle.setAttribute('aria-label', open
+      ? (navToggle.dataset.labelClose || 'Cerrar menú de navegación')
+      : (navToggle.dataset.labelOpen || 'Abrir menú de navegación'));
   }
 
   if (navToggle && navPanel) {
