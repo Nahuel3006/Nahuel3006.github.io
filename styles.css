@@ -156,26 +156,15 @@ a {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  font-weight: 700;
   color: var(--text);
   text-decoration: none;
 }
 
-.brand-mark {
-  display: grid;
-  place-items: center;
+.brand-icon {
+  display: block;
   width: 34px;
   height: 34px;
-  border-radius: 8px;
-  background-color: var(--accent);
-  color: var(--accent-contrast);
-  font-size: 0.82rem;
-  font-weight: 700;
-}
-
-.brand-name {
-  font-size: 0.95rem;
+  color: var(--accent);
 }
 
 .nav-controls {
@@ -322,6 +311,47 @@ a {
   .nav-controls {
     margin-left: 1rem;
   }
+}
+
+/* ---------- Iconos (sprite SVG inline) ---------- */
+.icon-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.icon-inline {
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  flex-shrink: 0;
+  vertical-align: -0.18em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Iconos de títulos: color de acento y separación del texto */
+.section-title .icon-inline,
+.section-subtitle .icon-inline,
+.card h3 .icon-inline {
+  margin-right: 0.45rem;
+  color: var(--accent);
+}
+
+.section-title .icon-inline {
+  width: 0.95em;
+  height: 0.95em;
+}
+
+/* Botones y etiquetas de contacto: icono a la izquierda del texto */
+.btn .icon-inline {
+  width: 1.15em;
+  height: 1.15em;
+  vertical-align: 0;
 }
 
 /* ---------- Secciones ---------- */
@@ -617,7 +647,10 @@ section {
 }
 
 .contact-label {
-  min-width: 5.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 8rem;
   font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -661,4 +694,32 @@ section {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
   }
+}
+
+/* Iconos de la lista de contacto: algo más grandes que la etiqueta */
+.contact-label .icon-inline {
+  width: 1.3rem;
+  height: 1.3rem;
+  color: var(--accent);
+}
+
+/* Selector de idioma (bandera + texto) */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: auto;              /* anula el ancho fijo de 40px de .icon-btn */
+  padding: 0 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+.flag {
+  display: block;
+  width: 1.5rem;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18); /* borde para que la parte blanca se vea en modo claro */
 }
