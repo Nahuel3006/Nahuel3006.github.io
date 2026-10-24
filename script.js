@@ -37,18 +37,26 @@
     var stored = localStorage.getItem('theme');
     if (stored === 'dark' || stored === 'light') {
       applyTheme(stored);
-    } else if (colorMeta) {
-      colorMeta.setAttribute('content', systemDark.matches ? COLORS.dark : COLORS.light);
+    } else {
+      if (colorMeta) {
+        colorMeta.setAttribute('content', systemDark.matches ? COLORS.dark : COLORS.light);
+      }
+      // Sin elección manual, el botón refleja igual el tema activo.
+      if (themeBtn) themeBtn.setAttribute('aria-pressed', String(systemDark.matches));
     }
   } catch (e) {
     /* sin almacenamiento: sigue el sistema vía CSS */
+    if (themeBtn) themeBtn.setAttribute('aria-pressed', String(systemDark.matches));
   }
 
   // Si el usuario no eligió un tema manual, seguir cambios del sistema en vivo.
   if (systemDark.addEventListener) {
     systemDark.addEventListener('change', function (event) {
-      if (!root.dataset.theme && colorMeta) {
-        colorMeta.setAttribute('content', event.matches ? COLORS.dark : COLORS.light);
+      if (!root.dataset.theme) {
+        if (colorMeta) {
+          colorMeta.setAttribute('content', event.matches ? COLORS.dark : COLORS.light);
+        }
+        if (themeBtn) themeBtn.setAttribute('aria-pressed', String(event.matches));
       }
     });
   }
@@ -92,7 +100,7 @@
     });
 
     // Al pasar a escritorio, cerrar el menú móvil.
-    var desktop = window.matchMedia('(min-width: 860px)');
+    var desktop = window.matchMedia('(min-width: 960px)');
     if (desktop.addEventListener) {
       desktop.addEventListener('change', function (event) {
         if (event.matches) setNavOpen(false);
