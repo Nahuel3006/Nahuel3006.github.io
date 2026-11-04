@@ -356,7 +356,7 @@ a {
 
 /* ---------- Secciones ---------- */
 section {
-  padding-block: clamp(3rem, 8vw, 5rem);
+  padding-block: clamp(2rem, 6vw, 3.5rem);
   scroll-margin-top: 4.5rem;
 }
 
@@ -373,7 +373,7 @@ section {
 
 /* ---------- Hero ---------- */
 .hero {
-  padding-block: clamp(4rem, 12vw, 7rem);
+  padding-block: clamp(3rem, 10vw, 5rem);
 }
 
 .hero h1 {
@@ -432,6 +432,22 @@ section {
 }
 
 .btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Botones de acción en proyectos */
+.card .btn-row {
+  margin-top: 1rem;
+}
+
+.card .btn-outline {
+  background-color: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.card .btn-outline:hover {
   border-color: var(--accent);
   color: var(--accent);
 }
@@ -663,6 +679,18 @@ section {
   overflow-wrap: anywhere;
 }
 
+@media (max-width: 640px) {
+  .contact-list .location {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .contact-list .location .contact-value {
+    margin-left: calc(1.3rem + 0.45rem);
+  }
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   border-top: 1px solid var(--border);
@@ -722,4 +750,42 @@ section {
   height: auto;
   border-radius: 2px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18); /* borde para que la parte blanca se vea en modo claro */
+}
+
+p a, 
+li a:not(.btn):not(.lang-switch):not(.brand) {
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+p a:hover, 
+li a:not(.btn):not(.lang-switch):not(.brand):hover {
+  color: var(--accent); 
+}
+
+/* Línea sutil animada solo en enlaces de texto */
+p a::after, 
+li a:not(.btn):not(.lang-switch):not(.brand):after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+p a:hover::after, 
+li a:not(.btn):not(.lang-switch):not(.brand):hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Excepción para asegurar que los botones y tarjetas mantengan su comportamiento limpio sin interferencias */
+.btn, .brand, .lang-switch, .nav-panel a {
+  position: relative; /* Mantiene la integridad visual del botón */
 }

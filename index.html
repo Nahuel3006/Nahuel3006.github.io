@@ -108,6 +108,13 @@
       <path
         d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" />
     </symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24">
+      <path d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z" />
+      <circle cx="12" cy="11" r="2.5" />
+    </symbol>
+    <symbol id="i-download" viewBox="0 0 24 24">
+      <path d="M12 3v12M7 10l5 5 5-5M4 21h16" />
+    </symbol>
   </svg>
 
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -125,11 +132,11 @@
       <div class="nav-panel" id="site-nav">
         <nav aria-label="Navegación principal">
           <ul>
-            <li><a href="#sobre-mi">Sobre mí</a></li>
             <li><a href="#experiencia">Experiencia</a></li>
             <li><a href="#proyectos">Proyectos</a></li>
             <li><a href="#habilidades">Habilidades</a></li>
             <li><a href="#educacion">Educación</a></li>
+            <li><a href="#otras-experiencias">Otras experiencias</a></li>
             <li><a href="#contacto">Contacto</a></li>
           </ul>
         </nav>
@@ -202,13 +209,18 @@
     <section class="hero" id="inicio" aria-labelledby="hero-title">
       <div class="container">
         <h1 id="hero-title">Nahuel Solveira</h1>
-        <p class="subtitle">Desarrollador Backend y Fullstack</p>
-        <p class="intro">Desarrollador de software con más de 4 años de experiencia profesional en sistemas
-          empresariales. Actualmente estoy orientando mi especialización al desarrollo backend y fullstack con React y
+        <p class="subtitle">Desarrollador Backend / Fullstack</p>
+        <p class="intro">Desarrollador con más de 4 años de experiencia en Microsoft Dynamics 365 Finance &amp;
+          Operations (D365 F&amp;O). Especializado en optimización de procesos, automatización, informes electrónicos y
+          desarrollo en X++, C# y SQL. Actualmente orientando mi carrera al desarrollo Backend y Fullstack con React y
           Node.js.
         </p>
         <div class="btn-row">
-          <a class="btn btn-primary" href="https://www.linkedin.com/in/nahuel-solveira" target="_blank"
+          <a class="btn btn-primary " href="cv/Nahuel-Solveira-CV-ES.pdf" download><svg class="icon-inline"
+              aria-hidden="true" focusable="false">
+              <use href="#i-download" />
+            </svg>Descargar CV<span class="sr-only"> (PDF)</span></a>
+          <a class="btn btn-outline" href="https://www.linkedin.com/in/nahuel-solveira" target="_blank"
             rel="noopener"><svg class="icon-inline" aria-hidden="true" focusable="false">
               <use href="#i-linkedin" />
             </svg>LinkedIn<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
@@ -224,41 +236,7 @@
       </div>
     </section>
 
-    <!-- 2. Sobre mí -->
-    <section id="sobre-mi" aria-labelledby="titulo-sobre-mi">
-      <div class="container">
-        <h2 class="section-title" id="titulo-sobre-mi"><svg class="icon-inline" aria-hidden="true" focusable="false">
-            <use href="#i-user" />
-          </svg> Sobre mí</h2>
-        <p class="lead">
-          Tengo más de 4 años de experiencia trabajando como desarrollador de software, donde construí y mantuve
-          soluciones para procesos de negocio críticos.
-          <br>Me especialicé en Microsoft Dynamics 365 Finance &amp; Operations (X++, SQL, C#), y fui promovido dos
-          veces
-          dentro de la misma empresa, de Young Professional a Developer SSR.
-        </p>
-        <p class="lead">
-          Durante ese período, mi trabajo se centró en optimizar el rendimiento y la confiabilidad de los procesos:
-          logré llevar procesos que tardaban horas a una decena de minutos, implementé procesamiento en segundo plano
-          para funcionalidades que trabajaban con volúmenes de alrededor de 10 mil registros e integré credenciales con
-          Azure Key Vault. También trabajé con APIs (pruebas con Postman), informes electrónicos (Electronic Reporting)
-          y en la extensión de funcionalidades nativas para alrededor de cinco países de Latinoamérica.
-        </p>
-        <p class="lead">
-          Me desempeñé en equipos multidisciplinarios, en coordinación con consultores funcionales y bajo metodologías
-          ágiles, con pruebas unitarias y reuniones diarias en inglés con personal de Microsoft.</p>
-        <p class="lead">
-          Actualmente curso la Diplomatura en Desarrollo Fullstack con React, NodeJS y herramientas de IA, con el
-          objetivo
-          de aplicar esa base a proyectos backend y web.
-        </p>
-        <p class="lead">
-          Inglés técnico avanzado y perfil analítico con autoaprendizaje continuo.
-        </p>
-      </div>
-    </section>
-
-    <!-- 3. Experiencia -->
+    <!-- 2. Experiencia -->
     <section id="experiencia" aria-labelledby="titulo-experiencia">
       <div class="container">
         <h2 class="section-title" id="titulo-experiencia"><svg class="icon-inline" aria-hidden="true" focusable="false">
@@ -281,30 +259,29 @@
             </li>
           </ul>
 
-          <h4 class="subhead">Responsabilidades</h4>
-          <ul class="list">
-            <li>Desarrollo de nuevas funcionalidades y resolución integral de incidencias (bugs) en el equipo de
-              propiedad intelectual (Globalix), bajo metodologías ágiles.</li>
-            <li>Implementación y optimización de informes electrónicos (Electronic Reporting) de exportación e
-              importación.</li>
-            <li>Extensión de funcionalidades nativas de D365 F&amp;O para alrededor de cinco países de Latinoamérica
-              (entre ellos Argentina, Chile y Perú).</li>
-            <li>Reuniones diarias en inglés con personal de Microsoft durante un período de mi trabajo en la empresa.
-            </li>
-            <li>Referente del módulo de facturación electrónica de Argentina en la última etapa.</li>
-            <li>Estimación de tareas y coordinación constante con consultores funcionales.</li>
-            <li>Pruebas de APIs con Postman, herramienta aprendida de forma autodidacta.</li>
-            <li>Capacitación interna sobre roles y permisos en Finance &amp; Operations.</li>
-            <li>Trabajo con pruebas unitarias y gestión de tareas mediante Azure DevOps.</li>
-          </ul>
-
           <h4 class="subhead">Logros</h4>
           <ul class="list highlights">
-            <li>Optimicé procesos complejos que consumían gran cantidad de recursos, previniendo fallas de ejecución
-              desde el cliente, pasando de procesos que tardaban horas a una decena de minutos.</li>
-            <li>Implementé procesamiento en segundo plano (background tasks) para manejar grandes volúmenes de datos
-              (alrededor de 10 mil registros entre distintas tablas).</li>
-            <li>Mejoré la seguridad del licenciamiento del software integrando credenciales desde Azure Key Vault.</li>
+            <li>Promovido 2 veces en 3 años (Young Professional → Developer Jr. → Developer SSR).</li>
+            <li>Optimicé procesos de Informes Electrónicos (Electronic Reporting) en D365 F&amp;O, reduciendo sus
+              tiempos de ejecución de horas a ~10 minutos mediante la optimización con las herramientas de ER y código
+              X++.</li>
+            <li>Implementé la ejecución en segundo plano para una funcionalidad con más de 10.000 registros, eliminando
+              timeouts y la necesidad de interacción del cliente durante la ejecución.</li>
+            <li>Extendí funcionalidades nativas de D365 F&amp;O para 5 países de LATAM (Argentina, Chile, Perú y otros),
+              abarcando Informes Electrónicos, cálculo de inflación, impuestos y fiscalización de documentos.</li>
+            <li>Referente técnico del módulo de Facturación Electrónica de Argentina, trabajando en conjunto con el
+              equipo responsable de la API intermedia entre la solución y ARCA para destrabar e implementar nuevas
+              funcionalidades.</li>
+            <li>Extendí y actualicé el proyecto open source ISVLicenseGenerator a modo CLI (C# / .NET), aplicando
+              ingeniería inversa para adaptarlo a los requisitos de una nueva versión del software, mejorando la
+              seguridad y eliminando pasos manuales en la generación de licencias ISV.</li>
+            <li>Retomé, corregí y mantuve los add-ins de Excel para la importación y exportación de datos relacionados a
+              libros contables, brindando apoyo a otros equipos con procesos similares.</li>
+            <li>Reorganicé los roles y privilegios del ISV por módulo acorde al uso diario y di una capacitación interna
+              al respecto.</li>
+            <li>Análisis, resolución de bugs, migración de código entre soluciones y entre distintos módulos de D365
+              F&amp;O.</li>
+            <li>Integración de credenciales con Azure Key Vault para el licenciamiento del ISV.</li>
           </ul>
 
           <h4 class="subhead">Tecnologías</h4>
@@ -314,24 +291,9 @@
             <li class="chip">SQL</li>
             <li class="chip">Electronic Reporting</li>
             <li class="chip">Azure DevOps</li>
+            <li class="chip">Azure Key Vault</li>
             <li class="chip">LCS</li>
             <li class="chip">Postman</li>
-          </ul>
-        </article>
-
-        <article class="card card-compact">
-          <h3>Otras experiencias</h3>
-          <ul class="mini-list">
-            <li>
-              <p class="mini-line"><span class="role-name">Servicio técnico de sistemas</span> <span
-                  class="role-date">Agosto 2020 – Presente</span></p>
-              <p class="muted">Profesional independiente · Soporte de hardware y software: instalación de programas,
-                reparaciones y mantenimiento de equipos.</p>
-            </li>
-            <li>
-              <p class="mini-line"><span class="role-name">Cajero</span> <span class="role-date">2021</span></p>
-              <p class="muted">Minimercado · Atención al público</p>
-            </li>
           </ul>
         </article>
       </div>
@@ -344,37 +306,113 @@
             <use href="#i-code" />
           </svg> Proyectos</h2>
 
+        <h3 class="section-subtitle">Proyectos destacados</h3>
         <div class="grid grid-2">
           <article class="card">
-            <h3>ISV License Generator — CLI</h3>
+            <h3>ISV License Generator - CLI</h3>
             <p class="muted card-subtitle">Fork de <a href="https://github.com/aariste/ISVLicenseGenerator"
                 target="_blank" rel="noopener">aariste/ISVLicenseGenerator<span class="sr-only"> (se abre en una pestaña
                   nueva)</span></a></p>
-            <p>Por iniciativa propia, durante mi trabajo en AW LATAM, extendí la herramienta para poder usarla por línea
-              de comandos (CLI) y automatizar procesos, ya que originalmente solo funcionaba mediante interfaz gráfica.
-            </p>
+            <p>Extensión del proyecto open source, agregando soporte CLI para automatizar la generación de licencias
+              ISV.
+              Adaptado a los requisitos de una nueva versión del software mediante ingeniería inversa, mejorando la
+              seguridad y eliminando pasos manuales.</p>
             <ul class="chips">
               <li class="chip">C#</li>
               <li class="chip">.NET 7.0</li>
               <li class="chip">CLI</li>
             </ul>
             <div class="btn-row">
-              <a class="btn btn-outline" href="https://github.com/Nahuel3006/ISVLicenseGenerator_CLI" target="_blank"
+              <a class="btn btn-primary" href="https://github.com/Nahuel3006/ISVLicenseGenerator_CLI" target="_blank"
                 rel="noopener">Ver repositorio<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
             </div>
           </article>
+        </div>
 
-          <!-- COMPLETAR (tarjeta oculta hasta tener un proyecto real de la Diplomatura):
-               para reactivarla, reemplazar este comentario por una tarjeta como la de arriba
-               con título, descripción, tecnologías y botones "Ver repositorio" y "Ver demo".
-               Ejemplo de estructura:
-               <article class="card">
-                 <h3>Título del proyecto</h3>
-                 <p>Descripción</p>
-                 <ul class="chips"> ... </ul>
-                 <div class="btn-row"> botones con enlaces reales </div>
-               </article>
-          -->
+        <h3 class="section-subtitle">Otros proyectos</h3>
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Café Serrano - Café de especialidad en San Luis</h3>
+            <p class="muted">Trabajo Práctico Clases 1, 2 y 3 - Diplomatura en Desarrollo Fullstack con React, NodeJS y
+              Herramientas de IA</p>
+            <p>Página de una sola vista con carrusel en el hero, carta de productos, offcanvas "Tu pedido", menú
+              desplegable y dos modales con formularios validados con JavaScript.</p>
+            <ul class="chips">
+              <li class="chip">HTML</li>
+              <li class="chip">CSS</li>
+              <li class="chip">JavaScript</li>
+              <li class="chip">Bootstrap</li>
+            </ul>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="https://github.com/Nahuel3006/cafe-serrano-landing" target="_blank"
+                rel="noopener">Ver repositorio<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+              <a class="btn btn-primary" href="https://nahuel3006.github.io/cafe-serrano-landing/" target="_blank"
+                rel="noopener">Ver demo<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Café Serrano - Escuela de Barismo</h3>
+            <p class="muted">Trabajo Práctico N° 4 - Diplomatura en Desarrollo Fullstack con React, NodeJS y
+              Herramientas de IA</p>
+            <p>Landing page con navbar sticky, hero con próximo curso, grilla de cursos, formulario de consulta con
+              validación del lado del cliente, datos de contacto con mapa embebido y footer. JavaScript embebido en
+              HTML.</p>
+            <ul class="chips">
+              <li class="chip">HTML</li>
+              <li class="chip">CSS</li>
+              <li class="chip">JavaScript</li>
+              <li class="chip">Bootstrap</li>
+            </ul>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="https://github.com/Nahuel3006/cafe-serrano-escuela-barismo"
+                target="_blank" rel="noopener">Ver repositorio<span class="sr-only"> (se abre en una pestaña
+                  nueva)</span></a>
+              <a class="btn btn-primary" href="https://nahuel3006.github.io/cafe-serrano-escuela-barismo/"
+                target="_blank" rel="noopener">Ver demo<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Página "Nosotros" - Equipo de Trabajo</h3>
+            <p class="muted">Trabajo Práctico N° 5 - Diplomatura en Desarrollo Fullstack con React, NodeJS y
+              Herramientas de IA</p>
+            <p>Página de una sola vista con navbar, sección "Nosotros" y footer. Los miembros del equipo se cargan
+              dinámicamente desde data/miembros.json con fetch + async/await y se muestran en cards de Bootstrap
+              generadas con JavaScript.</p>
+            <ul class="chips">
+              <li class="chip">HTML</li>
+              <li class="chip">CSS</li>
+              <li class="chip">JavaScript</li>
+              <li class="chip">Bootstrap</li>
+              <li class="chip">Fetch API</li>
+            </ul>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="https://github.com/Nahuel3006/pagina-nosotros-equipo" target="_blank"
+                rel="noopener">Ver repositorio<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+              <a class="btn btn-primary" href="https://nahuel3006.github.io/pagina-nosotros-equipo/" target="_blank"
+                rel="noopener">Ver demo<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Portfolio Personal</h3>
+            <p class="muted">Sitio web estático</p>
+            <p>Sitio web bilingüe (español/inglés) desarrollado desde cero con HTML, CSS y JavaScript puro. Implementa
+              modo claro/oscuro con persistencia, menú responsive y accesible, navegación activa con
+              IntersectionObserver, y optimización SEO con Open Graph.</p>
+            <ul class="chips">
+              <li class="chip">HTML5</li>
+              <li class="chip">CSS3</li>
+              <li class="chip">JavaScript</li>
+            </ul>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="https://github.com/Nahuel3006/nahuel3006.github.io" target="_blank"
+                rel="noopener">Ver repositorio<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+              <a class="btn btn-primary" href="https://nahuel3006.github.io/" target="_blank" rel="noopener">Ver
+                demo<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -392,13 +430,13 @@
                 <use href="#i-code" />
               </svg> Lenguajes</h3>
             <ul class="chips">
-              <li class="chip">SQL</li>
+              <li class="chip">X++</li>
               <li class="chip">C#</li>
+              <li class="chip">SQL</li>
               <li class="chip">JavaScript</li>
               <li class="chip">Java</li>
               <li class="chip">C</li>
               <li class="chip">Python</li>
-              <li class="chip">X++</li>
             </ul>
           </article>
 
@@ -409,20 +447,9 @@
             <ul class="chips">
               <li class="chip">Node.js</li>
               <li class="chip">React</li>
-              <li class="chip">Pruebas de APIs REST</li>
+              <li class="chip">APIs REST</li>
               <li class="chip">HTML</li>
               <li class="chip">CSS</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3><svg class="icon-inline" aria-hidden="true" focusable="false">
-                <use href="#i-database" />
-              </svg> Datos y formatos</h3>
-            <ul class="chips">
-              <li class="chip">SQL Server</li>
-              <li class="chip">JSON</li>
-              <li class="chip">XML</li>
             </ul>
           </article>
 
@@ -434,6 +461,7 @@
               <li class="chip">Git</li>
               <li class="chip">GitHub</li>
               <li class="chip">Azure DevOps</li>
+              <li class="chip">Azure Portal</li>
               <li class="chip">Azure Key Vault</li>
               <li class="chip">Postman</li>
               <li class="chip">Visual Studio</li>
@@ -449,8 +477,21 @@
             <ul class="chips">
               <li class="chip">Metodologías ágiles</li>
               <li class="chip">Pruebas unitarias</li>
+              <li class="chip">Análisis y resolución de problemas</li>
               <li class="chip">Trabajo en equipo</li>
-              <li class="chip">Resolución de problemas</li>
+              <li class="chip">Comunicación con usuarios</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3><svg class="icon-inline" aria-hidden="true" focusable="false">
+                <use href="#i-database" />
+              </svg> Datos y formatos</h3>
+            <ul class="chips">
+              <li class="chip">SQL Server</li>
+              <li class="chip">JSON</li>
+              <li class="chip">XML</li>
+              <li class="chip">CSV</li>
             </ul>
           </article>
         </div>
@@ -472,36 +513,21 @@
 
           <article class="card">
             <h3>Ingeniería en Computación</h3>
-            <p class="muted">Universidad Nacional de San Luis (UNSL) · Cursado 2015–2021</p>
-            <p>Cinco materias aprobadas con examen final:</p>
-            <ul class="list">
-              <li>Resolución de Problemas y Algoritmos</li>
-              <li>Programación 1</li>
-              <li>Cálculo 1</li>
-              <li>Álgebra 1</li>
-              <li>Matemáticas Discretas</li>
-            </ul>
-            <p>Varias cursadas aprobadas, entre ellas:</p>
-            <ul class="list">
-              <li>Programación 2</li>
-              <li>Estructuras de Datos y Algoritmos</li>
-              <li>Probabilidad y Estadística</li>
-              <li>Bases de Datos</li>
-            </ul>
+            <p class="muted">Universidad Nacional de San Luis (UNSL) · Cursado parcial 2015-2020</p>
           </article>
 
           <article class="card">
             <h3>Programador de Software</h3>
-            <p class="muted">Universidad de La Punta (ULP) · Cursado 2017</p>
+            <p class="muted">Universidad de La Punta (ULP) · Cursado parcial 2017</p>
           </article>
 
           <article class="card">
             <h3>freeCodeCamp</h3>
-            <p>Cinco certificaciones, 2022–2023:</p>
+            <p class="muted">2022 - 2023</p>
             <ul class="list">
               <li>Back End and APIs</li>
               <li>Front End Libraries</li>
-              <li>JavaScript Algorithms</li>
+              <li>JavaScript Algorithms and Data Structures</li>
               <li>Responsive Web Design</li>
               <li>Data Visualization</li>
             </ul>
@@ -509,7 +535,10 @@
 
           <article class="card">
             <h3>Centro Universitario de Idiomas (CUI)</h3>
-            <p>Nivel 16, Ciclo de Especialización (equivalente a C1 del MCER); Ciclo Superior: Lengua Inglesa I.</p>
+            <p class="muted">Nivel 18, Ciclo superior de Lengua Inglesa
+              <br />(<a href="https://cui.edu.ar/ingles" target="_blank" rel="noopener noreferrer">equivalente a C1/C2
+                del MCER</a>)
+            </p>
           </article>
         </div>
 
@@ -526,14 +555,40 @@
           <article class="card">
             <h4>Inglés</h4>
             <p class="muted">Avanzado · C1 del MCER (CUI, Nivel 16)</p>
-            <p>Aprendizaje autodidacta desde los 14 años; comprensión técnica, lectura, redacción y conversación
-              fluidas, con uso oral profesional en reuniones diarias con personal de Microsoft.</p>
+            <p>Uso técnico y profesional fluido en lectura, redacción, conversación y reuniones diarias con personal de
+              Microsoft.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 7. Contacto -->
+    <!-- 7. Otras experiencias -->
+    <section id="otras-experiencias" aria-labelledby="titulo-otras-experiencias">
+      <div class="container">
+        <h2 class="section-title" id="titulo-otras-experiencias"><svg class="icon-inline" aria-hidden="true"
+            focusable="false">
+            <use href="#i-briefcase" />
+          </svg> Otras experiencias</h2>
+
+        <article class="card card-compact">
+          <ul class="mini-list">
+            <li>
+              <p class="mini-line"><span class="role-name">Servicio técnico de sistemas</span> <span
+                  class="role-date">Agosto 2020 – Presente</span></p>
+              <p class="muted">Profesional independiente · Soporte de hardware y software, diagnóstico y resolución de
+                incidencias.</p>
+            </li>
+            <li>
+              <p class="mini-line"><span class="role-name">Atención al público y caja</span> <span
+                  class="role-date">2021</span></p>
+              <p class="muted">Minimercado · Atención al cliente, cobro, manejo de caja y trabajo bajo presión.</p>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- 8. Contacto -->
     <section id="contacto" aria-labelledby="titulo-contacto">
       <div class="container">
         <h2 class="section-title" id="titulo-contacto"><svg class="icon-inline" aria-hidden="true" focusable="false">
@@ -542,13 +597,19 @@
 
         <article class="card contact-card">
           <p class="lead">Estoy abierto a nuevas oportunidades en desarrollo de software —backend, fullstack o sistemas
-            empresariales—. Si querés conversar, escribime por email o encontrarme en estas plataformas:</p>
+            empresariales—. Si querés conversar, escribime por email o encuentrame en estas plataformas:</p>
           <ul class="contact-list">
             <li>
               <span class="contact-label"><svg class="icon-inline" aria-hidden="true" focusable="false">
                   <use href="#i-mail" />
                 </svg> Email</span>
               <a href="mailto:nahuel.solveira@gmail.com">nahuel.solveira@gmail.com</a>
+            </li>
+            <li class="contact-item location">
+              <span class="contact-label"><svg class="icon-inline" aria-hidden="true" focusable="false">
+                  <use href="#i-map-pin" />
+                </svg> Ubicación</span>
+              <span class="contact-value">San Luis, Argentina</span>
             </li>
             <li>
               <span class="contact-label"><svg class="icon-inline" aria-hidden="true" focusable="false">
