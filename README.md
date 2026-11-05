@@ -20,6 +20,7 @@ Portfolio personal estático desarrollado con HTML, CSS y JavaScript puro.
 ## Estructura
 - `index.html` - Versión en español
 - `en/` - Versión en inglés
+- `cv/` - CV en PDF para descarga: `Nahuel-Solveira-CV-ES.pdf` desde la página en español y `Nahuel-Solveira-CV-EN.pdf` desde la página en inglés
 - `styles.css` - Estilos y variables de tema
 - `script.js` - Tema, menú móvil y navegación activa
 - `sitemap.xml` - Mapa del sitio
