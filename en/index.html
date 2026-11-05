@@ -394,6 +394,28 @@
                 demo<span class="sr-only"> (opens in a new tab)</span></a>
             </div>
           </article>
+
+          <article class="card">
+            <button class="project-preview-trigger" type="button" data-dialog-open="discordbot-preview"
+              aria-haspopup="dialog" aria-controls="discordbot-preview"
+              aria-label="Enlarge anonymized Discord leaderboard screenshot">
+              <img src="../projects/DiscordBot-preview.png" alt="" width="622" height="286" loading="lazy"
+                decoding="async">
+              <span>View enlarged screenshot</span>
+            </button>
+            <h3>Wordle Scoreboard Bot for Discord</h3>
+            <p>A Discord bot that processes a channel's history or detects new Wordle results to track per-player
+              statistics and publish a points leaderboard.</p>
+            <ul class="chips">
+              <li class="chip">JavaScript</li>
+              <li class="chip">Node.js</li>
+              <li class="chip">discord.js</li>
+            </ul>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="https://github.com/Nahuel3006/Wordle-Scoreboard-Bot-for-Discord"
+                target="_blank" rel="noopener">View repository<span class="sr-only"> (opens in a new tab)</span></a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -617,6 +639,19 @@
       <p class="muted">Built with plain HTML, CSS and JavaScript.</p>
     </div>
   </footer>
+
+  <dialog class="project-image-dialog" id="discordbot-preview" aria-labelledby="discordbot-preview-title">
+    <div class="project-image-dialog__header">
+      <h2 id="discordbot-preview-title">Wordle Scoreboard Bot for Discord</h2>
+      <button class="icon-btn project-image-dialog__close" type="button" data-dialog-close
+        aria-label="Close enlarged preview" title="Close enlarged preview"><span aria-hidden="true">&times;</span></button>
+    </div>
+    <figure>
+      <img src="../projects/DiscordBot-preview.png"
+        alt="An anonymized Discord message showing the bot's Wordle points leaderboard." width="622" height="286">
+      <figcaption>Example leaderboard; player names and the avatar have been hidden.</figcaption>
+    </figure>
+  </dialog>
 
   <script src="../script.js"></script>
 </body>

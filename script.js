@@ -143,6 +143,39 @@
     });
   }
 
+  /* ---------------- Vista ampliada de proyectos ---------------- */
+
+  var previewDialog = document.getElementById('discordbot-preview');
+  var previewTrigger = document.querySelector('[data-dialog-open="discordbot-preview"]');
+  var previewClose = previewDialog && previewDialog.querySelector('[data-dialog-close]');
+  var previewOpener = null;
+
+  if (previewDialog && previewTrigger && previewClose && typeof previewDialog.showModal === 'function') {
+    previewTrigger.addEventListener('click', function () {
+      previewOpener = previewTrigger;
+      previewDialog.showModal();
+    });
+
+    previewClose.addEventListener('click', function () {
+      previewDialog.close();
+    });
+
+    previewDialog.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        previewDialog.close();
+      }
+    });
+
+    previewDialog.addEventListener('click', function (event) {
+      if (event.target === previewDialog) previewDialog.close();
+    });
+
+    previewDialog.addEventListener('close', function () {
+      if (previewOpener) previewOpener.focus();
+    });
+  }
+
   /* ---------------- Año dinámico en el footer ---------------- */
 
   var anio = document.getElementById('anio');
